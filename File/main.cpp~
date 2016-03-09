@@ -1,0 +1,52 @@
+// Exemple d'utilisation d'une file (queue) de la STL
+#include <iostream>	// cout, endl
+#include "Anneau.hpp" 	// tout le code
+
+template class Anneau<>;
+
+void testFile(){
+
+	std::cout << "\n*************************************\nDébut du Test :" << std::endl;
+	
+	// Creation de l'anneau : (utilisation du constructeur))
+	Anneau<> testA;
+	
+	// Test de la fonction estVide()
+	if(testA.estVide()){
+		std::cout << "Il n'y a pas d'élément !" << std::endl;
+	} else {
+		std::cout << "Il y a plusieur éléments !" << std::endl;
+	}
+
+	//Test de la fonction ajoute() puis de la fonction courant()
+	testA.ajoute('c');
+	std::cout << "'c' devrait s'afficher : " << testA.courant() << std::endl;
+	
+	testA.ajoute('h');
+	testA.ajoute('a');
+	testA.ajoute('t');
+	testA.ajoute('z');
+	
+	// Test de la fonction avance() et vérification avec courant()
+	testA.avance();
+
+	std::cout << "'h' devrait s'afficher : " << testA.courant() << std::endl;
+
+	// Test de la fonction supprime() et vérification avec courant()
+	testA.supprime();
+
+	std::cout << "'a' devrait s'afficher : " << testA.courant() << std::endl;
+
+	// Test de la fonction recule() et vérification avec courant()
+	testA.recule();
+	std::cout << "'c' devrait s'afficher : " << testA.courant() << std::endl;
+}
+
+int main (){
+	
+	// A décomenter pour faire le test sur File
+	// testFile();	
+
+	return 0;
+}
+

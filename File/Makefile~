@@ -1,0 +1,2 @@
+file:
+	g++ main.cpp -o prog.exe
