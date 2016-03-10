@@ -1,10 +1,11 @@
 // Exemple d'utilisation d'une file (queue) de la STL
-#include <iostream>	// cout, endl
-#include "Anneau.hpp" 	// tout le code
+#include <iostream>		// cout, endl
+//#include "File/Anneau.hpp" 	// Pour les files
+#include "Pile/Anneau.hpp"	//Pour les Piles
 
 template class Anneau<>;
 
-void testFile(){
+void test(){
 
 	std::cout << "\n*************************************\nDébut du Test :" << std::endl;
 	
@@ -46,7 +47,7 @@ void testFile(){
 int main (){
 	
 	// A décomenter pour faire le test sur File
-	// testFile();	
+	test();	
 
 	return 0;
 }
