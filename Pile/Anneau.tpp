@@ -23,6 +23,8 @@ Anneau<T>::Anneau() {
 	pile = std::stack<T>();
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Destructeur vide d'Anneau
@@ -34,6 +36,8 @@ Anneau<T>::~Anneau() {
 	//Contenu ?
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Méthode vérifiant si un Anneau est vide.
@@ -43,9 +47,11 @@ template < typename T >
  * @return Retourne true si l'Anneau est vide, retourne false sinon.
  **/
 bool Anneau<T>::estVide() {
-	return(pile.empty())
+	return pile.empty();
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Procédure ajoutant un élément à l'Anneau.
@@ -58,6 +64,8 @@ void Anneau<T>::ajoute(T nouv) {
 	pile.push(nouv);
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Procédure retirant un élément de l'Anneau
@@ -70,6 +78,8 @@ void Anneau<T>::supprime() {
 	pile.pop();
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Retourne l'élément courant.
@@ -82,6 +92,8 @@ T Anneau<T>::courant() {
 	return pile.top();
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Procédure avançant les éléments de l'Anneau
@@ -109,6 +121,8 @@ void Anneau<T>::avance() {
 	}
 }
 
+
+/********************************************************************/
 template < typename T >
 /**
  * @brief Méthode reculant les éléments de l'Anneau

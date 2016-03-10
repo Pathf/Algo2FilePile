@@ -3,7 +3,7 @@ Projet Universitaire (Licence 2 informatique)
 
 Expliquer :
 
-	- Explication pour le make file
+	- Explication pour le makefile
 
 	- Utilisation la fonction de test
 
