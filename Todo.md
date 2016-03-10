@@ -8,3 +8,5 @@
 - faire la fonction dedoublonne (4 focus)
 
 - et faire le 5 Dévelopement
+
+- Vérifier les todo de chaque document

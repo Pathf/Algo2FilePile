@@ -1,4 +1,17 @@
-// Exemple d'utilisation d'une file (queue) de la STL
+/**
+ * @file mainF.cpp
+ *
+ * @author Valentin Hénique
+ * @date 10 Mars 2016
+ * @version 0.8
+ * @copyright Tous Droits Réservés.
+ * 
+ * @todo Tester la documentation Doxygen
+ * @todo Proofreading
+ * @todo Ajout du test de la fonction estVide quand l'anneau comporte des éléments
+ * 
+ **/
+
 #include <iostream>		// cout, endl
 #include "File/Anneau.hpp" 	// Pour les files
 //#include "Pile/Anneau.hpp"	//Pour les Piles
@@ -7,41 +20,108 @@ template class Anneau<>;
 
 void test(){
 
-	std::cout << "\n*************************************\nDébut du Test :" << std::endl;
+	std::cout << "\n****************************************************" << std::endl;
+	std::cout << "*                  Début du Test :                 *" << std::endl;
+
+std::cout << "****************************************************" << std::endl;
 	
-	// Creation de l'anneau : (utilisation du constructeur))
+/**
+ * @brief Création de l'anneau
+ *
+ * @details Utilisation du constructeur
+ *
+ **/
+	std::cout << "\nTest de la creation d'un anneau\n--------------------------------" << std::endl;
 	Anneau<> testA;
-	
-	// Test de la fonction estVide()
+	std::cout << "  Fait !" << std::endl;
+
+/**
+ * @brief Test de la fonction estVide()
+ *
+ * @details Dans notre cas la fonction estVide() doit retourner "Il n'y a pas d'élément !" 
+ *
+ **/
+	std::cout << "\nTest de la fonction estVide() :\n--------------------------------" << std::endl;
 	if(testA.estVide()){
-		std::cout << "Il n'y a pas d'élément !" << std::endl;
+		std::cout << "  Il n'y a pas d'élément !" << std::endl;
 	} else {
-		std::cout << "Il y a plusieur éléments !" << std::endl;
+		std::cout << "  Il y a plusieur éléments !" << std::endl;
 	}
 
-	//Test de la fonction ajoute() puis de la fonction courant()
+/**
+ * @brief Test de la fonction ajoute() puis de la fonction courant()
+ *
+ * @details Dans notre cas la fonction ajoute() doit ajouter à l'anneau 'c' et la fonction courant() va vérifier l'ajout en affichant 'c' 
+ *
+ **/
+	std::cout << "\nTest de la fonction ajoute()\n--------------------------------" << std::endl;
 	testA.ajoute('c');
-	std::cout << "'c' devrait s'afficher : " << testA.courant() << std::endl;
-	
-	// Quelque ajout
+	std::cout << "  Fait !" << std::endl;
+
+	std::cout << "\nTest de la fonction courant() et Vérification de ajoute() :\n--------------------------------" << std::endl;
+	std::cout << "  'c' devrait s'afficher : " << testA.courant() << std::endl;
+
+/**
+ * @brief On effectue quelque ajout
+ *
+ **/
 	testA.ajoute('h');
 	testA.ajoute('a');
 	testA.ajoute('t');
 	testA.ajoute('z');
-	
-	// Test de la fonction avance() et vérification avec courant()
+
+/**
+ * @brief Test de la fonction avance() et vérification avec courant()
+ *
+ * @details Dans notre cas la fonction avance() doit faire tourner l'anneau en avant pour aller sur 'h' et la fonction courant() va vérifier en affichant le caractère 'h' attendu 
+ *
+ **/
+	std::cout << "\nTest de la fonction avance() :\n--------------------------------" << std::endl;
 	testA.avance();
 
-	std::cout << "'h' devrait s'afficher : " << testA.courant() << std::endl;
+	std::cout << "  'h' devrait s'afficher : " << testA.courant() << std::endl;
 
-	// Test de la fonction supprime() et vérification avec courant()
+/**
+ * @brief Test de la fonction supprime() et vérification avec courant()
+ *
+ * @details Dans notre cas la fonction supprime() doit suprimer caractère 'h' et la fonction courant() va vérifier la suppression en affichant le caractère 'a' attendu 
+ *
+ **/
+	std::cout << "\nTest de la fonction supprime :\n--------------------------------" << std::endl;
 	testA.supprime();
 
-	std::cout << "'a' devrait s'afficher : " << testA.courant() << std::endl;
+	std::cout << "  'a' devrait s'afficher : " << testA.courant() << std::endl;
 
-	// Test de la fonction recule() et vérification avec courant()
+/**
+ * @brief Test de la fonction recule() et vérification avec courant()
+ *
+ * @details Dans notre cas la fonction recule() doit faire tourner l'anneau en arrière pour aller sur 'c' et la fonction courant() va vérifier en affichant le caractère 'c' attendu 
+ *
+ **/
+	std::cout << "\nTest de la fonction recule() :\n--------------------------------" << std::endl;
 	testA.recule();
-	std::cout << "'c' devrait s'afficher : " << testA.courant() << std::endl;
+
+	std::cout << "  'c' devrait s'afficher : " << testA.courant() << std::endl;
+
+/**
+ * @brief Deuxème test de la fonction estVide()
+ *
+ * @details Dans notre cas la fonction estVide() doit retourner "Il y a plusieur éléments !"
+ *
+ **/
+	std::cout << "\nDeuxième test de la fonction estVide :\n--------------------------------" << std::endl;
+	if(testA.estVide()){
+		std::cout << "  Il n'y a pas d'élément !" << std::endl;
+	} else {
+		std::cout << "  Il y a plusieur éléments !" << std::endl;
+	}
+
+
+	std::cout << "\n****************************************************" << std::endl;
+	
+	std::cout << "* Fin de la fonction Test() : Déroulement normal ! *" << std::endl;
+
+	std::cout << "****************************************************" << std::endl;
 }
 
 int main (){

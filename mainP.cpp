@@ -1,4 +1,16 @@
-// Exemple d'utilisation d'une file (queue) de la STL
+/**
+ * @file mainP.cpp
+ *
+ * @author Valentin Hénique
+ * @date 10 Mars 2016
+ * @version 0.8
+ * @copyright Tous Droits Réservés.
+ * 
+ * @todo Tester la documentation Doxygen
+ * @todo Proofreading
+ * 
+ **/
+
 #include <iostream>		// cout, endl
 //#include "File/Anneau.hpp" 	// Pour les files
 #include "Pile/Anneau.hpp"	//Pour les Piles
