@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} %cp1252 pour Windows, utf8 pour Linux
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[frenchb]{babel}
+\usepackage{hyperref}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+
+\newcommand{\info}{\texttt}
+
+\title{Algorithmique et Structure de Données 2\\
+Rapport Projet 1}
+\author{Valentin \bsc{Hénique} \and Corentin \bsc{Chédotal}}
+\date{13 Mars 2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et Structure de Données 2" nous avons été amené à produire un premier projet. Celui-ci consiste en la réalisation d'une structure de données abstraite vue en cours : l'Anneau. Le langage de programmation exigé était le C++. Le but du projet était donc d'implémenter l'Anneau mais d'au moins deux façons différentes afin d'observer les différences que cela engendrerait. Les deux implémentations minimales requises étaient par l'utilisation d'une File et d'une Pile, deux structures de données déja implémentées en C++ respectivement par la \info{queue} et la \info{stack}. Ce rapport détaillera comme demandé nos choix derrière les implémentations et fera apparaître les caractéristiques essentielles de chacune d'entre elle afin de faciliter la différenciation des deux méthodes.
+
+\section{Implémentations}
+
+    \subsection{L'Anneau par File (\info{queue)}}
+    
+        \subsubsection{Fonctionnement}
+        
+        \subsubsection{Complexité Temporelle}
+        
+        \begin{table}[H]
+        \centering
+        \caption{Complexité Temporelle par File}
+        \label{ComplexiteFile}
+        \begin{tabular}{|l|l|}
+        \hline
+        \rowcolor[HTML]{C0C0C0} 
+        {\color[HTML]{333333} \textbf{Méthodes}} & \textbf{Complexité} \\ \hline
+        Anneau()                                 &  $\Theta(1)$                   \\ \hline
+        ~Anneau()                                &  $\Theta(1)$                   \\ \hline
+        estVide()                                &  $\Theta(1)$                   \\ \hline
+        ajoute()                                 &  $\Theta(1)$                   \\ \hline
+        supprime()                               &  $\Theta(1)$                   \\ \hline
+        courant()                                &  $\Theta(1)$                   \\ \hline
+        avance()                                 &                     \\ \hline
+        recule()                                 &                     \\ \hline
+        \end{tabular}
+        \end{table}
+        
+        \subsubsection{Encombrement Mémoire}
+    
+    \subsection{L'Anneau par Pile (\info{stack)}}
+    
+        \subsubsection{Fonctionnement}
+        
+        \subsubsection{Complexité Temporelle}
+        
+        \begin{table}[H]
+        \centering
+        \caption{Complexité Temporelle par Pile}
+        \label{ComplexitePile}
+        \begin{tabular}{|l|l|}
+        \hline
+        \rowcolor[HTML]{C0C0C0} 
+        {\color[HTML]{333333} \textbf{Méthodes}} & \textbf{Complexité} \\ \hline
+        Anneau()                                 &                     \\ \hline
+        ~Anneau()                                &                     \\ \hline
+        estVide()                                &                     \\ \hline
+        ajoute()                                 &                     \\ \hline
+        supprime()                               &                     \\ \hline
+        courant()                                &                     \\ \hline
+        avance()                                 &                     \\ \hline
+        recule()                                 &                     \\ \hline
+        \end{tabular}
+        \end{table}
+        
+        \subsubsection{Encombrement Mémoire}
+        
+    \subsection{La fonction \info{dedoublonne()}}
+    
+        
+\section{Conclusion}
+
+%CONCLURE SUR LES IMPLEMENTATIONS, AVANTAGES ET INCONVENIENTS
+
+\newpage
+\tableofcontents
+
+\end{document}
+
