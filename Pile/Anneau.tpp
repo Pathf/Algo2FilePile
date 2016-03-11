@@ -103,19 +103,19 @@ template < typename T >
  **/
 void Anneau<T>::avance() {
 	T sauvegarde;
-	stack<T> tmp;
+	std::stack<T> tmp;
 
-	sauvegarde = pile.courant;
+	sauvegarde = pile.courant();
 	pile.supprime();
 	
-	for (int i = 0; i < pile.size; i++) {
+	for (int i = 0; i < pile.size(); i++) {
 		tmp.ajoute(pile.courant());
 		pile.supprime();
 	}
 	
 	pile.ajoute(sauvegarde);
 	
-	for (int i = 0; i < tmp.size; i++) {
+	for (int i = 0; i < tmp.size(); i++) {
 		pile.ajoute(tmp.courant());
 		tmp.supprime();
 	}
@@ -132,14 +132,14 @@ template < typename T >
  **/
 void Anneau<T>::recule() {
 	T sauvegarde;
-	stack<T> tmp;
+	std::stack<T> tmp;
 
 	for (int i = 0; i < pile.size() - 1; i++) {
 		tmp.ajoute(pile.courant());
 		pile.supprime();
 	}
 	
-	sauvegarde = pile.courant;
+	sauvegarde = pile.courant();
 	pile.supprime();
 
 	for (int i = 0; i < tmp.size(); i++) {

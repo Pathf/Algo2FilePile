@@ -23,6 +23,7 @@ Anneau<T>::Anneau(){
 	file = std::queue<T>();
 }
 
+
 /********************************************************************/
 template < typename T>
 /**
@@ -33,12 +34,13 @@ template < typename T>
  **/
 Anneau<T>::~Anneau(){}
 
+
 /********************************************************************/
 template < typename T>
 /**
  * @brief Méthode vérifiant si un Anneau est vide.
  *
- * @details Méthode vérifiant si un Anneau donné est vide ou non. Fait appel à la méthode empty() déja incluse dans la structure de donnée Pile (stack).
+ * @details Méthode vérifiant si un Anneau donné est vide ou non. Fait appel à la méthode empty() déja incluse dans la structure de donnée File (queue).
  *
  * @return Retourne true si l'Anneau est vide, retourne false sinon.
  **/
@@ -46,6 +48,7 @@ template < typename T>
 bool Anneau<T>::estVide(){
 	return file.empty();
 }
+
 
 /********************************************************************/
 template < typename T>
@@ -60,6 +63,7 @@ void Anneau<T>::ajoute(T nouv){
 	file.push(nouv);
 }
 
+
 /********************************************************************/
 template < typename T>
 /**
@@ -72,6 +76,7 @@ template < typename T>
 void Anneau<T>::supprime(){
 	file.pop();
 }
+
 
 /********************************************************************/
 template < typename T>
@@ -86,6 +91,7 @@ T Anneau<T>::courant(){
 	return file.front();
 }
 
+
 /********************************************************************/
 template < typename T>
 /**
@@ -99,6 +105,7 @@ void Anneau<T>::avance(){
 	supprime();
 	ajoute(tmp);
 }
+
 
 /********************************************************************/
 template < typename T>
