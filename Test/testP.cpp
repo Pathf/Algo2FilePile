@@ -1,20 +1,6 @@
-/**
- * @file mainF.cpp
- *
- * @author Valentin Hénique
- * @date 10 Mars 2016
- * @version 0.8
- * @copyright Tous Droits Réservés.
- * 
- * @todo Tester la documentation Doxygen
- * @todo Proofreading
- * @todo Ajout du test de la fonction estVide quand l'anneau comporte des éléments
- * 
- **/
-
-#include <iostream>		// cout, endl
-#include "File/Anneau.hpp" 	// Pour les files
-//#include "Pile/Anneau.hpp"	//Pour les Piles
+#include "test.hpp"
+#include <iostream>
+#include "../Pile/Anneau.hpp"
 
 template class Anneau<>;
 
@@ -45,7 +31,7 @@ std::cout << "****************************************************" << std::endl
 	if(testA.estVide()){
 		std::cout << "  Il n'y a pas d'élément !" << std::endl;
 	} else {
-		std::cout << "  Il y a plusieur éléments !" << std::endl;
+		std::cout << "  Il y a plusieurs éléments !" << std::endl;
 	}
 
 /**
@@ -123,12 +109,3 @@ std::cout << "****************************************************" << std::endl
 
 	std::cout << "****************************************************" << std::endl;
 }
-
-int main (){
-	
-	// A décomenter pour faire le test sur File
-	test();	
-
-	return 0;
-}
-
