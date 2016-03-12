@@ -1,5 +1,6 @@
 # Algo2FilePile
 Projet Universitaire (Licence 2 informatique)
+Crée et réalisé par Pathf et Hearthbroken-Git
 
 Expliquer :
 

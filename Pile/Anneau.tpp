@@ -20,6 +20,8 @@ template < typename T >
  *
  **/
 Anneau<T>::Anneau() {
+	pile = std::stack<T>();
+	pileTemp = std::stack<T>();
 }
 
 
@@ -53,11 +55,11 @@ template < typename T >
 /**
  * @brief Procédure ajoutant un élément à l'Anneau.
  *
- * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Fait usage de la méthode push() incluse dans dans la Pile (stack).
+ * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Dans le cas de ajoute l'élément courant reste le même. Fait usage de la méthode push() incluse dans dans la Pile (stack).
  *
  * @param[in] nouv L'élément de type T à ajouter
  **/
-void Anneau<T>::ajoute(T nouv) {
+void Anneau<T>::ajoute(T nouv) {	
 	while(!estVide()){
 		pileTemp.push(pile.top());
 		pile.pop();
