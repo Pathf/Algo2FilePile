@@ -37,7 +37,7 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
         \begin{itemize}
             \item \info{Anneau()} : Le constructeur de Anneau fait simplement appel au constructeur de la File (\info{queue}) afin de construire la file qui servira à stocker les données
             \item \info{\info{\char`\~Anneau()}} : Le destructeur d'Anneau, il est vide car l'Anneau ne fait pas l'objet d'allocations dynamiques nécessitant d'être détruites à la destruction de l'Anneau
-            \item \info{estVide()} : Cette méthode vérifiant si un Anneau est vide fait simplement appel à la méthode incluse dans la File qui fait déja exactement ceci pour la \info{queue}
+            \item \info{estVide()} : Cette méthode vérifiant si un Anneau est vide fait simplement appel à la méthode incluse dans la File qui fait déjà exactement ceci pour la \info{queue}
             \item \info{ajoute()} : Cette méthode permettant l'ajout d'un élément à l'Anneau utilise directement la méthode ajoutant un élément à la queue de la File
             \item \info{supprime()} : De la même façon que \info{ajoute()} ici la méthode supprimant un élément de l'Anneau fait appel à la méthode de la File supprimant l'élément en tête de celle-ci (ce qui s'avère d'ailleurs être l'élément courant de l'Anneau)
             \item \info{courant()} : Justement, cette méthode retournant l'élément courant de l'Anneau utilise simplement la méthode de \info{queue} retournant l'élément en tête de la File
@@ -48,6 +48,7 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
         
         \subsubsection{Complexité Temporelle}
         
+        Ci-après ce trouve le tableau des ordres de grandeur des complexités temporelles des divers méthodes de l'Anneau implémenté à l'aide de la File.
         \begin{table}[H]
         \centering
         \label{ComplexiteFile}
@@ -67,7 +68,12 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
         \caption{Complexité Temporelle par File}
         \end{table}
         
+        Après il est évident que les ordres de grandeurs des méthodes ne sont finalement que des indicateurs très abstraits et théoriques du fonctionnement d'une implémentation. Ainsi se trouve ci-dessous comme demandé une étude du temps d'exécution de la fonction \info{dedoublonne()} présentées en \ref{dedoublonne} en fonction du nombre de valeurs stockées dans l'Anneau.
+        %GRAPHE MESURE TEMPS EXECUTION
+        
         \subsubsection{Encombrement Mémoire}
+    
+        Enfin l'encombrement mémoire de l'Anneau par File reste relativement limité. En effet le seul attribut de la classe Anneau consiste ici en une seule et unique File (\info{queue}). Or l'empreinte mémoire de celle-ci est plus ou moins proportionnelle au nombre d'éléments de la File, le facteur de proportionnalité dépendant du type de container employé. Ainsi il est tout à fait possible de faire un parallèle avec les complexités temporelles et donner un ordre de grandeur de l'encombrement mémoire de l'Anneau implémenté. Il est donc possible de dire que l'encombrement mémoire est linéaire en fonction du nombre d'éléments dans l'Anneau.
     
     \subsection{L'Anneau par Pile (\info{stack)}}
     
@@ -97,6 +103,7 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
         \subsubsection{Encombrement Mémoire}
         
     \subsection{La fonction \info{dedoublonne()}}
+    \label{dedoublonne}
     
         
 \section{Conclusion}
@@ -106,6 +113,8 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
 \newpage
 \appendix
 \section*{Annexe}
+
+%EMPLACEMENT SCHEMA
 
 \newpage
 \tableofcontents
