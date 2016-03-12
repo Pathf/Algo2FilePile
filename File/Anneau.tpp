@@ -55,7 +55,7 @@ template < typename T>
 /**
  * @brief Procédure ajoutant un élément à l'Anneau.
  *
- * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Celui-ci devient d'ailleurs le nouveau élément courant. Fait usage de la méthode push() incluse dans dans la File (queue).
+ * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Fait usage de la méthode push() incluse dans dans la File (queue).
  *
  * @param[in] nouv L'élément de type T à ajouter
  **/

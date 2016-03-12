@@ -21,6 +21,7 @@ template < typename T >
  **/
 Anneau<T>::Anneau() {
 	pile = std::stack<T>();
+	pileTemp = std::stack<T>();
 }
 
 
@@ -32,9 +33,7 @@ template < typename T >
  * @details Destructeur laissé vide car aucune allocation n'est faite mais présent pour d'éventuelles révisions.
  *
  **/
-Anneau<T>::~Anneau() {
-	//Contenu ?
-}
+Anneau<T>::~Anneau() {}
 
 
 /********************************************************************/
@@ -103,21 +102,22 @@ template < typename T >
  **/
 void Anneau<T>::avance() {
 	T sauvegarde;
-	std::stack<T> tmp;
 
-	sauvegarde = pile.courant();
-	pile.supprime();
-	
+	sauvegarde = courant();
+	std::cout << " regarde 1 : " << courant() << std::endl;
+	supprime();
+	std::cout << " regarde 2 : " << courant() << std::endl;
+
 	for (int i = 0; i < pile.size(); i++) {
-		tmp.ajoute(pile.courant());
-		pile.supprime();
+		pileTemp.push(courant());
+		supprime();
 	}
 	
-	pile.ajoute(sauvegarde);
-	
-	for (int i = 0; i < tmp.size(); i++) {
-		pile.ajoute(tmp.courant());
-		tmp.supprime();
+	ajoute(sauvegarde);
+	std::cout << " regarde 3 : " << courant() << std::endl;
+	for (int i = 0; i < pileTemp.size(); i++) {
+		ajoute(pileTemp.top());
+		pileTemp.pop();
 	}
 }
 
@@ -132,20 +132,19 @@ template < typename T >
  **/
 void Anneau<T>::recule() {
 	T sauvegarde;
-	std::stack<T> tmp;
 
 	for (int i = 0; i < pile.size() - 1; i++) {
-		tmp.ajoute(pile.courant());
-		pile.supprime();
+		pileTemp.push(courant());
+		supprime();
 	}
 	
-	sauvegarde = pile.courant();
-	pile.supprime();
+	sauvegarde = courant();
+	supprime();
 
-	for (int i = 0; i < tmp.size(); i++) {
-		pile.ajoute(tmp.courant());
-		tmp.supprime();
+	for (int i = 0; i < pileTemp.size(); i++) {
+		ajoute(pileTemp.top());
+		pileTemp.pop();
 	}
 
-	pile.ajoute(sauvegarde);
+	ajoute(sauvegarde);
 }
