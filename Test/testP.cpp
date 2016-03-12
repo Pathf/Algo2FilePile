@@ -52,13 +52,9 @@ std::cout << "****************************************************" << std::endl
  *
  **/
 	testA.ajoute('h');
-std::cout << "  Test 1 : " << testA.courant() << std::endl;
 	testA.ajoute('a');
-std::cout << "  Test 2 : " << testA.courant() << std::endl;
 	testA.ajoute('t');
-std::cout << "  Test 3 : " << testA.courant() << std::endl;
 	testA.ajoute('z');
-std::cout << "  Test 4 : " << testA.courant() << std::endl;
 /**
  * @brief Test de la fonction avance() et vérification avec courant()
  *
@@ -76,7 +72,7 @@ std::cout << "  Test 4 : " << testA.courant() << std::endl;
  * @details Dans notre cas la fonction supprime() doit suprimer caractère 'h' et la fonction courant() va vérifier la suppression en affichant le caractère 'a' attendu 
  *
  **/
-	std::cout << "\nTest de la fonction supprime :\n--------------------------------" << std::endl;
+	std::cout << "\nTest de la fonction supprime() :\n--------------------------------" << std::endl;
 	testA.supprime();
 
 	std::cout << "  'a' devrait s'afficher : " << testA.courant() << std::endl;
@@ -89,7 +85,6 @@ std::cout << "  Test 4 : " << testA.courant() << std::endl;
  **/
 	std::cout << "\nTest de la fonction recule() :\n--------------------------------" << std::endl;
 	testA.recule();
-
 	std::cout << "  'c' devrait s'afficher : " << testA.courant() << std::endl;
 
 /**

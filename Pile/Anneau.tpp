@@ -20,8 +20,6 @@ template < typename T >
  *
  **/
 Anneau<T>::Anneau() {
-	pile = std::stack<T>();
-	pileTemp = std::stack<T>();
 }
 
 
@@ -55,12 +53,22 @@ template < typename T >
 /**
  * @brief Procédure ajoutant un élément à l'Anneau.
  *
- * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Celui-ci devient d'ailleurs le nouveau élément courant. Fait usage de la méthode push() incluse dans dans la Pile (stack).
+ * @details Procédure permettant d'ajouter un élément de type T dans l'Anneau à la suite de courant(). Fait usage de la méthode push() incluse dans dans la Pile (stack).
  *
  * @param[in] nouv L'élément de type T à ajouter
  **/
 void Anneau<T>::ajoute(T nouv) {
+	while(!estVide()){
+		pileTemp.push(pile.top());
+		pile.pop();
+	}
+
 	pile.push(nouv);
+
+	while(!pileTemp.empty()){
+		pile.push(pileTemp.top());
+		pileTemp.pop();
+	}
 }
 
 
@@ -101,21 +109,17 @@ template < typename T >
  *
  **/
 void Anneau<T>::avance() {
-	T sauvegarde;
-
-	sauvegarde = courant();
-	std::cout << " regarde 1 : " << courant() << std::endl;
+	T sauvegarde = courant();
 	supprime();
-	std::cout << " regarde 2 : " << courant() << std::endl;
 
-	for (int i = 0; i < pile.size(); i++) {
+	while(!estVide()){
 		pileTemp.push(courant());
 		supprime();
 	}
-	
+
 	ajoute(sauvegarde);
-	std::cout << " regarde 3 : " << courant() << std::endl;
-	for (int i = 0; i < pileTemp.size(); i++) {
+
+	while(!pileTemp.empty()){
 		ajoute(pileTemp.top());
 		pileTemp.pop();
 	}
@@ -131,20 +135,20 @@ template < typename T >
  *
  **/
 void Anneau<T>::recule() {
-	T sauvegarde;
+	int taille = pile.size();
 
-	for (int i = 0; i < pile.size() - 1; i++) {
+	for (int i = 0; i < taille - 1; i++) {
 		pileTemp.push(courant());
 		supprime();
 	}
-	
-	sauvegarde = courant();
+
+	T sauvegarde = courant();
 	supprime();
 
-	for (int i = 0; i < pileTemp.size(); i++) {
-		ajoute(pileTemp.top());
+	while(!pileTemp.empty()){
+		pile.push(pileTemp.top());
 		pileTemp.pop();
 	}
 
-	ajoute(sauvegarde);
+	pile.push(sauvegarde);
 }

@@ -25,7 +25,7 @@ class Anneau{
 private:
 	std::stack<T> pile;
 	std::stack<T> pileTemp;
-	
+
 public:
 	Anneau();
 	~Anneau();
