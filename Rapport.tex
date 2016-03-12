@@ -10,6 +10,7 @@
 
 \newcommand{\info}{\texttt}
 
+
 \title{Algorithmique et Structure de Données 2\\
 Rapport Projet 1}
 \author{Valentin \bsc{Hénique} \and Corentin \bsc{Chédotal}}
@@ -27,27 +28,43 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
 
     \subsection{L'Anneau par File (\info{queue)}}
     
+    La première façon de réaliser la structure de données abstraite de l'Anneau de façon concrète que nous avons fait est celle employant la File ou \info{queue} en C++ car elle paraissait la plus facile à implémenter.
+    
         \subsubsection{Fonctionnement}
+        
+        Cette méthode vient donc utiliser le principe de la File FIFO (\emph{First In First Out}) comme container des données qui seront entrées par l'Utilisateur dans l'Anneau. Le fonctionnement comme un Anneau, c'est à dire sans notion de queue ou de tête (qui sont pourtant intrinsèques à la File), est rendu possible en ne permettant l'accès qu'à un point ce qui est déja le cas dans la File (la tête de la File) et la rotation de l'Anneau se fait en faisant en fait tourner l'intégralité des données autour du point d'accès à l'élément courant. Ceci va donner l'illusion de l'absence de tête ou de queue car à chaque fois qu'une donnée arrive à la tête et doit "reculer" elle sera immédiatement remise en queue.
+        Voici comment les méthodes de l'Anneau ont été implémentées avec la File :
+        \begin{itemize}
+            \item \info{Anneau()} : Le constructeur de Anneau fait simplement appel au constructeur de la File (\info{queue}) afin de construire la file qui servira à stocker les données
+            \item \info{\info{\char`\~Anneau()}} : Le destructeur d'Anneau, il est vide car l'Anneau ne fait pas l'objet d'allocations dynamiques nécessitant d'être détruites à la destruction de l'Anneau
+            \item \info{estVide()} : Cette méthode vérifiant si un Anneau est vide fait simplement appel à la méthode incluse dans la File qui fait déja exactement ceci pour la \info{queue}
+            \item \info{ajoute()} : Cette méthode permettant l'ajout d'un élément à l'Anneau utilise directement la méthode ajoutant un élément à la queue de la File
+            \item \info{supprime()} : De la même façon que \info{ajoute()} ici la méthode supprimant un élément de l'Anneau fait appel à la méthode de la File supprimant l'élément en tête de celle-ci (ce qui s'avère d'ailleurs être l'élément courant de l'Anneau)
+            \item \info{courant()} : Justement, cette méthode retournant l'élément courant de l'Anneau utilise simplement la méthode de \info{queue} retournant l'élément en tête de la File
+            \item \info{avance()} : Cette méthode fait tourner l'Anneau en faisant tourner les éléments de la queue de la File vers la tête comme indiqué en \ref{SchemaAvanceFile}
+            \item \info{recule()} : A l'inverse de \info{avance()} cette méthode va faire tourner l'Anneau en déplaçant tous les éléments de celui-ci autant de fois qu'il y a d'éléments - 1 donnant ainsi l'impression que l'Anneau tournait de la tête vers la queue comme montré en \ref{SchemaReculeFile}
+        \end{itemize}
+        Enfin nous avons décidé de garder le container par défaut pour la \info{queue}, la \info{deque}. En effet celle-ci serait optimale lors d'ajout en fin ou en début de container alors que son homologue la \info{list} serait préférée lors d'ajout au milieu du container ce qui n'est pas notre cas ici.
         
         \subsubsection{Complexité Temporelle}
         
         \begin{table}[H]
         \centering
-        \caption{Complexité Temporelle par File}
         \label{ComplexiteFile}
         \begin{tabular}{|l|l|}
         \hline
         \rowcolor[HTML]{C0C0C0} 
         {\color[HTML]{333333} \textbf{Méthodes}} & \textbf{Complexité} \\ \hline
-        Anneau()                                 &  $\Theta(1)$                   \\ \hline
-        ~Anneau()                                &  $\Theta(1)$                   \\ \hline
-        estVide()                                &  $\Theta(1)$                   \\ \hline
-        ajoute()                                 &  $\Theta(1)$                   \\ \hline
-        supprime()                               &  $\Theta(1)$                   \\ \hline
-        courant()                                &  $\Theta(1)$                   \\ \hline
-        avance()                                 &                     \\ \hline
-        recule()                                 &                     \\ \hline
+        \info{Anneau()}                                 &  $\Theta(1)$                   \\ \hline
+        \info{\char`\~Anneau()}                                &  $\Theta(1)$                   \\ \hline
+        \info{estVide()}                                &  $\Theta(1)$                   \\ \hline
+        \info{ajoute()}                                 &  $\Theta(1)$                   \\ \hline
+        \info{supprime()}                               &  $\Theta(1)$                   \\ \hline
+        \info{courant()}                                &  $\Theta(1)$                   \\ \hline
+        \info{avance()}                                 &  $\Theta(1)$                   \\ \hline
+        \info{recule()}                                 &  $\Theta(n)$                   \\ \hline
         \end{tabular}
+        \caption{Complexité Temporelle par File}
         \end{table}
         
         \subsubsection{Encombrement Mémoire}
@@ -60,21 +77,21 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
         
         \begin{table}[H]
         \centering
-        \caption{Complexité Temporelle par Pile}
         \label{ComplexitePile}
         \begin{tabular}{|l|l|}
         \hline
         \rowcolor[HTML]{C0C0C0} 
         {\color[HTML]{333333} \textbf{Méthodes}} & \textbf{Complexité} \\ \hline
-        Anneau()                                 &                     \\ \hline
-        ~Anneau()                                &                     \\ \hline
-        estVide()                                &                     \\ \hline
-        ajoute()                                 &                     \\ \hline
-        supprime()                               &                     \\ \hline
-        courant()                                &                     \\ \hline
-        avance()                                 &                     \\ \hline
-        recule()                                 &                     \\ \hline
+        \info{Anneau()}                                 &  $\Theta(1)$                   \\ \hline
+        \info{\char`\~Anneau()}                                &  $\Theta(1)$                   \\ \hline
+        \info{estVide()}                                &  $\Theta(1)$                   \\ \hline
+        \info{ajoute()}                                 &  $\Theta(1)$                   \\ \hline
+        \info{supprime()}                               &  $\Theta(1)$                   \\ \hline
+        \info{courant()}                                &  $\Theta(1)$                   \\ \hline
+        \info{avance()}                                 &  $\Theta(n)$                   \\ \hline
+        \info{recule()}                                 &  $\Theta(n)$                   \\ \hline
         \end{tabular}
+        \caption{Complexité Temporelle par Pile}
         \end{table}
         
         \subsubsection{Encombrement Mémoire}
@@ -87,7 +104,10 @@ Dans le cadre de l'Unité d'Enseignement X4I0030 intitulée "Algorithmique et St
 %CONCLURE SUR LES IMPLEMENTATIONS, AVANTAGES ET INCONVENIENTS
 
 \newpage
+\appendix
+\section*{Annexe}
+
+\newpage
 \tableofcontents
 
 \end{document}
-
