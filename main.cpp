@@ -15,6 +15,7 @@
 #include <iostream>		// cout, endl
 #include "Test/test.hpp"	// Permet de verifier si les 
 #include "File/Anneau.hpp"
+//#include "Pile/Anneau.hpp"
 
 template < typename T>
 
@@ -34,7 +35,7 @@ Anneau<T> dedoublonne(Anneau<T> A){
 		Asans.avance();
 	}
 
-//Fait le tri :
+// Supprime les doublons :
 	T elt;
 	int cptB;
 
@@ -62,8 +63,19 @@ Anneau<T> dedoublonne(Anneau<T> A){
 	return Asans;
 }
 
-// fonction test de void dedoublonne(Anneau<> A);
+/**
+ * @brief fonction test de void dedoublonne(Anneau<> A);
+ *
+ * @details Test la fonction dedoublonne() pour voir si son fonctionnement est correcte
+ *
+ **/
 void testDedoublonne(){
+	std::cout << "\n****************************************************" << std::endl;
+	std::cout << "*                  Début du Test :                 *" << std::endl;
+
+	std::cout << "****************************************************" << std::endl;
+
+// Creation de l'anneau pour voir si les paramètres sont correcte
 	Anneau<> A;
 	A.ajoute('a');
 	A.ajoute('b');
@@ -73,21 +85,33 @@ void testDedoublonne(){
 	A.ajoute('d');
 	A.ajoute('a');
 
+// Test de la fonction dedoublonne()
 	Anneau<> B = dedoublonne(A);
 
-	std::cout << "Anneau A (";
+// Verification
+	std::cout << "\nPour l'anneau de depart A :" << std::endl;
+	std::cout << "-----------------------------" << std::endl;
+	std::cout << "  Anneau A (";
 	while(!A.estVide()){
 		std::cout << A.courant() << ",";
 		A.supprime();
 	}
-	std::cout << "FIN)" << std::endl;
+	std::cout << "FIN)\n" << std::endl;
 
-	std::cout << "Anneau B (";
+	std::cout << "Pour l'anneau sans doublons :" << std::endl;
+	std::cout << "-----------------------------" << std::endl;
+	std::cout << "  Pour B on devrait avoir B(a,b,c,d,FIN) : Anneau B (";
 	while(!B.estVide()){
 		std::cout << B.courant() << ",";
 		B.supprime();
 	}
 	std::cout << "FIN)" << std::endl;
+
+	std::cout << "\n****************************************************" << std::endl;
+	
+	std::cout << "*      Fin de la fonction TestDedoublonne() !      *" << std::endl;
+
+	std::cout << "****************************************************\n" << std::endl;
 }
 
 int main (){
