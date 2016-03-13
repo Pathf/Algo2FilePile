@@ -2,13 +2,10 @@
  * @file Anneau.tpp
  *
  * @author Corentin CHÉDOTAL
- * @date 10 Mars 2016
- * @version 0.2
+ * @date 13 Mars 2016
+ * @version 1.0
  * @copyright Tous Droits Réservés.
  * 
- * @todo Tester le fichier
- * @todo Tester la documentation Doxygen
- * @todo Proofreading
  * 
  **/
 
@@ -81,6 +78,8 @@ template < typename T >
  *
  * @details Procédure supprimant l'élément à l'emplacement courant de l'Anneau. Emploie la procédure pop() incluse dans la structure de donnée Pile (stack).
  *
+ * @pre L'Anneau ne doit pas être vide
+ *
  * @warning La procédure supprime() ne retourne pas l'élément lors de sa suppression.
  **/
 void Anneau<T>::supprime() {
@@ -93,7 +92,9 @@ template < typename T >
 /**
  * @brief Retourne l'élément courant.
  *
- * @details Métode retournant l'élément courant de l'Anneau. Ici dans l'implémentation par Pile (stack) et de par les limitations de celle-ci l'élément courant sera toujours celui en haut de la Pile, l'Anneau entier "tournant" puisque le courant reste "fixe". Utilise la procédure top() incluse dans la Pile (stack).
+ * @details Méthode retournant l'élément courant de l'Anneau. Ici dans l'implémentation par Pile (stack) et de par les limitations de celle-ci l'élément courant sera toujours celui en haut de la Pile, l'Anneau entier "tournant" puisque le courant reste "fixe". Utilise la procédure top() incluse dans la Pile (stack).
+ *
+ * @pre L'Anneau ne doit pas être vide
  *
  * @return L'élément de type T courant de l'Anneau.
  **/
@@ -108,6 +109,8 @@ template < typename T >
  * @brief Procédure avançant les éléments de l'Anneau
  *
  * @details Procédure faisant avancer les éléments de l'Anneau du point de vue de l'élément courant. Ici avec la Pile l'élément courant étant fixe c'est l'Anneau entier qui va être "tourné" en dépilant et réempilant en mettant de coté au moment opportun les éléments.
+ *
+ * @pre L'Anneau ne doit pas être vide
  *
  **/
 void Anneau<T>::avance() {
@@ -134,6 +137,8 @@ template < typename T >
  * @brief Méthode reculant les éléments de l'Anneau
  *
  * @details Méthode faisant reculer les éléments de l'Anneau du point de vue de l'élément courant. Ici avec la Pile l'élément courant étant fixe c'est l'Anneau entier qui va être "tourné" en dépilant et réempilant dans un ordre spécifique en mettant de coté au moment opportun les éléments.
+ *
+ * @pre L'Anneau ne doit pas être vide
  *
  **/
 void Anneau<T>::recule() {
