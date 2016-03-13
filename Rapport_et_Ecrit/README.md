@@ -1,13 +1,25 @@
 # Algo2FilePile
 Projet Universitaire (Licence 2 informatique)
-Crée et réalisé par Pathf et Hearthbroken-Git
 
-Expliquer :
+Dans ce README.md je vais expliquer le fonctionnement du Makefile pour la compilation.
 
-	- Explication pour le makefile
+Pour la compilation simple de l'implementation File il faut écrire :
+make fcom
 
-	- Utilisation la fonction de test
+Pour l'excecution simple de l'implementation File il faut écrire :
+make fexe
 
-	- Architecture de notre projet
+Pour la compilation et l'execution de l'implementation File il faut écrire :
+make fcoex
 
-	- Comment faire de la doc doxygen
+Pour la compilation simple de l'implementation Pile il faut écrire :
+make pcom
+
+Pour l'excecution simple de l'implementation Pile il faut écrire :
+make pexe
+
+Pour la compilation et l'execution de l'implementation Pile il faut écrire :
+make pcoex
+
+Pour les fichiers de test ils sont identique.
+
