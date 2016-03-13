@@ -21,7 +21,8 @@
 //#include "Pile/Anneau.hpp"
 
 
-int nbrValeurStockee = 10000;
+int nbrValeurStockee = 1000;
+std::string const nomfichier("resultatF.txt");
 /**
  * @var chrono
  * @brief chronomètre du programme
@@ -148,23 +149,26 @@ int main (){
 	//test();	
 	//testDedoublonne();
 
+	std::ofstream flux(nomfichier.c_str(),std::ios::app);
+
 	int valea;
 	double tmp = 0.0;
 	Anneau<> A;
 
 	for(int i = 0; i < 10; i++){
 		for(int j = 0; j < nbrValeurStockee; j++){
-			valea = rand() % 100 + 1;		
+			valea = rand() % 10 + 1;		
 			A.ajoute(valea);
 		}
 		START;
 		dedoublonne(A);
 		STOP;
 		std::cout << "Chrono " << i+1 << " : (nombre d elements = " << nbrValeurStockee << ")\n" << TEMPS - tmp << " millisecondes\n" << std::endl;
-
+		flux << TEMPS - tmp << " " << nbrValeurStockee << std::endl;
 	tmp = TEMPS;
 	}
 
+	
 	
 	return 0;
 }

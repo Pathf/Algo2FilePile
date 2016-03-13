@@ -9,3 +9,14 @@ Ensuite la fonction va supprimer les doublons de la maniere suivante. On rentre 
 Et pour finir on retourne l'anneau sans doublons
 
 PS: Pour les autres methode j'ai tout renseigné en doxygene
+
+PS: pour les resultats et la courbe il faut que tu utilise gnuplot j'ai crée un fichier resultat.txt que tu peux généré avec le main il faut juste faire varier le nombre et sinon il te donne temps d'execution sur la premiere colonne et nbr d'elements sur la deuxieme colonne		ou alors tu te fais pa chier et tu balance tout dan exel et on en parle plus au faite c'est une moyenne qui faut faire
+
+PPS: 	le fichier resultat.txt est celui fait pour les Files
+	le fichier resultatP.txt est celui fait pour les Piles
+
+la fonction main du main.cpp = programme qui mesure le temps/nbrvaleurstock
+
+PS: il faut faire les pre post condition si ta le temps pour toute les methodes
+
+

@@ -55,6 +55,7 @@ std::cout << "****************************************************" << std::endl
 	testA.ajoute('a');
 	testA.ajoute('t');
 	testA.ajoute('z');
+
 /**
  * @brief Test de la fonction avance() et vérification avec courant()
  *
@@ -85,6 +86,7 @@ std::cout << "****************************************************" << std::endl
  **/
 	std::cout << "\nTest de la fonction recule() :\n--------------------------------" << std::endl;
 	testA.recule();
+
 	std::cout << "  'c' devrait s'afficher : " << testA.courant() << std::endl;
 
 /**
