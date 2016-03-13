@@ -1,0 +1,11 @@
+Dedoublonne fonctionnement:
+
+crée un Anneau Asans qui va etre retourner.
+
+La première partie consiste a compter le nombre de T élements de l'anneau (on na pas le droit d'avoir la taille) et également de copier les éléments dans Asans
+
+Ensuite la fonction va supprimer les doublons de la maniere suivante. On rentre dans une 1er boucle puis on stocke le premiere élément pour ensuite rentrer dans une 2nd boucle pour voir si il égale aux autre éléments de l'anneau si oui on le supprime est on décremente la taille de Asans sinon on incremente la taille du compteur puis une fois comparrer a tout les éléments on sort de la boucle et on avance deux fois pour revenir a la position initiale.
+
+Et pour finir on retourne l'anneau sans doublons
+
+PS: Pour les autres methode j'ai tout renseigné en doxygene

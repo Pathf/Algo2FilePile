@@ -13,9 +13,39 @@
  **/
 
 #include <iostream>		// cout, endl
-#include "Test/test.hpp"	// Permet de verifier si les 
+#include <cstdlib>		// srand() et rand()
+#include <time.h>		// pour le temps
+#include <fstream>		// Pour l'ecriture dans un fichier
+#include "Test/test.hpp"	// Permet de verifier si les File Pile fonctionnent 
 #include "File/Anneau.hpp"
 //#include "Pile/Anneau.hpp"
+
+
+int nbrValeurStockee = 10000;
+/**
+ * @var chrono
+ * @brief chronomètre du programme
+**/
+
+clock_t chrono;
+
+/**
+ * @def START
+ * @brief démarre le chronomètre
+**/
+#define START chrono=clock();
+
+/**
+ * @def STOP
+ * @brief arrête le chronomètre
+**/
+#define STOP chrono=clock()-chrono;
+
+/**
+ * @def TEMPS
+ * @brief donne le temps du chronomètre (après arrêt)
+**/
+#define TEMPS double(chrono)/(CLOCKS_PER_SEC*0.001)
 
 template < typename T>
 
@@ -57,9 +87,6 @@ Anneau<T> dedoublonne(Anneau<T> A){
 		cpt--;
 	}
 
-	// Juste pour garder sons ordre de départ
-	Asans.avance();	
-
 	return Asans;
 }
 
@@ -82,7 +109,7 @@ void testDedoublonne(){
 	A.ajoute('c');
 	A.ajoute('a');
 	A.ajoute('c');
-	A.ajoute('d');
+	A.ajoute('a');
 	A.ajoute('a');
 
 // Test de la fonction dedoublonne()
@@ -116,10 +143,29 @@ void testDedoublonne(){
 
 int main (){
 	
+	srand((unsigned int)time(0));
 	// Permet de tester pour pile ou file en fonction de l'implementation
 	//test();	
-	testDedoublonne();
+	//testDedoublonne();
 
+	int valea;
+	double tmp = 0.0;
+	Anneau<> A;
+
+	for(int i = 0; i < 10; i++){
+		for(int j = 0; j < nbrValeurStockee; j++){
+			valea = rand() % 100 + 1;		
+			A.ajoute(valea);
+		}
+		START;
+		dedoublonne(A);
+		STOP;
+		std::cout << "Chrono " << i+1 << " : (nombre d elements = " << nbrValeurStockee << ")\n" << TEMPS - tmp << " millisecondes\n" << std::endl;
+
+	tmp = TEMPS;
+	}
+
+	
 	return 0;
 }
 
